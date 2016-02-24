@@ -1,0 +1,27 @@
+{{# if searchResultsLoading }}
+  <div class='alert alert-info'>Loading...</div>
+{{/if}}
+
+<form class='form-inline' {{action 'search' on='submit'}}>
+  <div class='form-group'>
+    {{input
+      value=unitDimensions
+      placeholder='Unit Dimensions'
+      class='form-control'
+      autocomplete='off'
+      required=true
+    }}
+  </div>
+
+  <div class='form-group'>
+    {{input
+      value=unitLocation
+      placeholder='City, State'
+      class='form-control'
+      autocomplete='off'
+      required=true
+    }}
+  </div>
+
+  {{input type='submit' value='Search' disabled=searchResultsLoading class='btn btn-primary'}}
+</form>
