@@ -1,5 +1,10 @@
 {{#if currentUnitData}}
   {{unit-graph monthlyData=currentUnitData.dataArray}}
+
+  <div class='well'>
+    <strong>Processing Time:</strong> {{currentUnitData.processingTime}}
+    <strong>Rentals Processed:</strong> {{currentUnitData.rentalsProcessedCount}}
+  </div>
 {{/if}}
 
 <h2>Search</h2>

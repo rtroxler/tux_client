@@ -1,4 +1,4 @@
-{{#if searchResultsLoading}}
+{{#if loading}}
   <div class='alert alert-info'>Loading...</div>
 {{/if}}
 
@@ -23,5 +23,10 @@
     }}
   </div>
 
-  {{input type='submit' value='Search' disabled=searchResultsLoading class='btn btn-primary'}}
+  {{input
+    type='submit'
+    value='Search'
+    disabled=loading
+    class='btn btn-primary'
+  }}
 </form>

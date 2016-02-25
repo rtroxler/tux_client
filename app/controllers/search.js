@@ -21,11 +21,16 @@ export default Ember.Controller.extend({
         october: 229.99,
         november: 225.26,
         december: 230.82,
+
+        processingTime: 0.666,
+        rentalsProcessedCount: 8716
       });
 
       this.set('loadingUnitData', true);
       this.set('currentUnitData', unitData);
-      this.set('loadingUnitData', false);
+      setTimeout(() => {
+        this.set('loadingUnitData', false);
+      }, 2000);
     }
   }
 });
