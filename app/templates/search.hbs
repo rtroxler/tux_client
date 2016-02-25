@@ -7,6 +7,15 @@
   </div>
 {{/if}}
 
+<div>
+  For debuggin:
+  <div>
+    {{#each currentUnitData as |data|}}
+      {{data.id}}
+    {{/each}}
+  </div>
+</div>
+
 <h2>Search</h2>
 {{unit-data-search-form
   loading=loadingUnitData

@@ -2,22 +2,24 @@ import DS from 'ember-data';
 /* global Ember */
 
 export default DS.Model.extend({
-  january: DS.attr('integer'),
-  february: DS.attr('integer'),
-  march: DS.attr('integer'),
-  april: DS.attr('integer'),
-  may: DS.attr('integer'),
-  june: DS.attr('integer'),
-  july: DS.attr('integer'),
-  august: DS.attr('integer'),
-  september: DS.attr('integer'),
-  october: DS.attr('integer'),
-  november: DS.attr('integer'),
-  december: DS.attr('integer'),
-  processingTime: DS.attr('integer'),
-  rentalsProcessedCount: DS.attr('integer'),
+  january: DS.attr('number'),
+  february: DS.attr('number'),
+  march: DS.attr('number'),
+  april: DS.attr('number'),
+  may: DS.attr('number'),
+  june: DS.attr('number'),
+  july: DS.attr('number'),
+  august: DS.attr('number'),
+  september: DS.attr('number'),
+  october: DS.attr('number'),
+  november: DS.attr('number'),
+  december: DS.attr('number'),
+  processingTime: DS.attr('number'),
+  rentalsProcessedCount: DS.attr('number'),
 
-  dataArray: Ember.computed('january', 'february', 'march', 'april', 'may', 'june', 'july', 'august', 'september', 'october', 'november', 'december', function() {
+  dataArray: Ember.computed('january', 'february', 'march', 'april', 'may',
+                            'june', 'july', 'august', 'september', 'october',
+                            'november', 'december', function() {
     return [
       this.get('january'),
       this.get('february'),
