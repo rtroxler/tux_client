@@ -1,4 +1,10 @@
-{{unit-graph monthlyData=this.model.dataArray}}
+{{#if currentUnitData}}
+  {{unit-graph monthlyData=currentUnitData.dataArray}}
+{{/if}}
 
 <h2>Search</h2>
-{{unit-data-search-form}}
+{{unit-data-search-form
+  loading=loadingUnitData
+  currentUnitData=currentUnitData
+  updateDataAction='updateCurrentUnitData'
+}}

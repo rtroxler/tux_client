@@ -1,16 +1,17 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-  searchResultsLoading: false,
+  loading: false,
+  updateDataAction: false,
 
   actions: {
     search: function() {
       let unitDimensions = this.get('unitDimensions'),
           unitLocation   = this.get('unitLocation');
 
-      this.set('searchResultsLoading', true);
+      this.sendAction('updateDataAction', { size: unitDimensions, location: unitLocation });
 
-      alert(`unitDimensions: ${unitDimensions}, unitLocation: ${unitLocation}`);
+      // alert(`unitDimensions: ${unitDimensions}, unitLocation: ${unitLocation}`);
     }
   }
 });
