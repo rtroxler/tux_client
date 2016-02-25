@@ -13,6 +13,8 @@ export default Ember.Controller.extend({
         this.set('currentUnitData', units);
 
         console.debug('Info loaded');
+      }, function() {
+        console.debug('Yeah that did not work');
       });
     }
   }
