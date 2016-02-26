@@ -49,6 +49,7 @@ export default Ember.Component.extend({
 
   chartOptions: function() {
     return {
+      multiTooltipTemplate: "<%if (label){%><%=label%>: <%}%><%= '$' + value %>",
       legendTemplate : '<ul class="rate-graph-legend">'+
                          '<% for (var i=0; i<datasets.length; i++) { %>'+
                            '<li style="list-style-type: none">'+
