@@ -12,6 +12,8 @@ export default Ember.Controller.extend({
   actions: {
     updateCurrentRateData: function(formSubmission) {
       this.set('loadingRateData', true);
+      this.set('errorMessage', '');
+      this.set('errorLoadingData', false);
 
       let queryParams = {
         'unit_dimensions': formSubmission.size,
