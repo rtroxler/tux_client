@@ -30,15 +30,12 @@
 </form>
 
 {{#if cities}}
-  <h3>Suggested Cities:</h3>
   <table>
-    <th>
-      <td class="col-xs-3">Location</td><td># Rentals</td>
-    </th>
+  <caption><strong>Suggested Cities:</strong></caption>
     {{#each cities as |city| }}
     <tr>
       <td>{{city.city}}, {{ city.state }}</td>
-      <td> {{ city.occurences }}</td>
+      <td> <strong>{{ city.occurences }}</strong> rentals</td>
     </tr>
     {{/each}}
   </table>
