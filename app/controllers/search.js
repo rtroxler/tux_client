@@ -27,6 +27,7 @@ export default Ember.Controller.extend({
         this.set('loadingRateData', false);
         this.set('errorMessage', 'There was a problem loading the requested rate data');
         this.set('errorLoadingData', true);
+        this.set('currentRateData', false);
       });
     }
   }
