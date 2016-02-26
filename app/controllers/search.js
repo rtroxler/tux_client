@@ -8,7 +8,12 @@ export default Ember.Controller.extend({
     updateCurrentUnitData: function(formSubmission) {
       this.set('loadingUnitData', true);
 
-      this.store.findAll('unit-data').then((units) => {
+      let queryParams = {
+        'unit_dimensions': formSubmission.size,
+        'city_name': formSubmission.location
+      }
+
+      this.store.query('unit-data', queryParams).then((units) => {
         this.set('loadingUnitData', false);
         this.set('currentUnitData', units);
 
