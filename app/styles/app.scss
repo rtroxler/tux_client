@@ -57,6 +57,11 @@ button.form-control {
 .btn-dark {
   background-color: #444;
   color: #fff;
+
+  &:hover, &:focus {
+    color: #fff;
+    background: #111;
+  }
 }
 
 .left {
