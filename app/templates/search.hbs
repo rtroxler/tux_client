@@ -2,13 +2,37 @@
   <div class='alert alert-danger'>{{errorMessage}}</div>
 {{/if}}
 
+{{#if loadingRateData}}
+  <div class='alert alert-info'>Loading...</div>
+{{/if}}
+
+<div class='container-padded'>
+  <div class='container-search left'>
+    {{unit-data-search-form
+      loading=loadingRateData
+      currentRateData=currentUnitData.firstObject
+      updateDataAction='updateCurrentRateData'
+    }}
+  </div>
+
+  {{#if currentRateData.firstObject.numRentalsProcessed}}
+    <div class='right rentals-processed text-right'>
+      <strong>Rentals Processed:</strong> {{currentRateData.firstObject.numRentalsProcessed}}
+    </div>
+  {{/if}}
+
+  <div class='clear'></div>
+</div>
+
 {{#if currentRateData}}
+  <div class='container-padded'>
   {{unit-graph
     monthlyData=currentRateData.firstObject.dataArray
     searchedLocation=searchedLocation
     searchedUnitSize=searchedUnitSize
     nationalData=nationalRateData.firstObject.dataArray
   }}
+  </div>
 
   <div class='well'>
     <strong>Processing Time:</strong> {{currentRateData.firstObject.processingTime}}
@@ -18,9 +42,3 @@
 
 {{currentRateData.id}}
 
-<h2>Search</h2>
-{{unit-data-search-form
-  loading=loadingRateData
-  currentRateData=currentUnitData.firstObject
-  updateDataAction='updateCurrentRateData'
-}}

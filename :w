@@ -1,0 +1,46 @@
+body {
+  padding-top: 2em;
+  background: #eee;
+}
+
+.container-primary {
+  max-width: 900px;
+}
+
+.unit-graph-canvas {
+  width: 100%;
+  height: 400px;
+}
+
+.rate-graph-legend {
+  margin: 1em auto 2em;
+  padding: 0;
+
+  li {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+}
+
+input.form-control {
+  border-radius: 0;
+}
+
+button.form-control {
+  border-radius: 0;
+}
+
+.container-padded {
+  padding: .5em;
+  background: #fff;
+  border: 1px solid #ddd;
+}
+
+.container-search {
+}
+
+.btn-dark {
+  background-color: #444;
+  color: #fff;
+}

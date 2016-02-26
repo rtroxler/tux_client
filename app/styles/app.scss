@@ -1,0 +1,78 @@
+body {
+  padding-top: 2em;
+  background: #eee;
+  color: #333;
+  font-family: Helvetica, sans-serif;
+  font-size: 13px;
+}
+
+.container-primary {
+  max-width: 900px;
+}
+
+.unit-graph-canvas {
+  width: 100%;
+  height: 400px;
+}
+
+.rate-graph-legend {
+  margin: 1em auto 2em;
+  padding: 0;
+
+  li {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+}
+
+input.form-control {
+  border-radius: 0;
+}
+
+button.form-control {
+  border-radius: 0;
+}
+
+.container-padded {
+  padding: 1em;
+  background: #fff;
+  border: 1px solid #ddd;
+  margin-bottom: 1em;
+}
+
+.container-search {
+  width: 500px;
+}
+
+.rentals-processed {
+  width: 300px;
+  line-height: 2.5em;
+}
+
+.btn-dull {
+  border-radius: 3px;
+}
+
+.btn-dark {
+  background-color: #444;
+  color: #fff;
+}
+
+.left {
+  float: left;
+  display: block;
+}
+
+.right {
+  float: right;
+  display: block;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.clear {
+  clear: both;
+}
