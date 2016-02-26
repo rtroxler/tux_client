@@ -7,19 +7,49 @@ export default Ember.Component.extend({
   legendMarkup: false,
   searchedUnitSize: '',
   searchedLocation: '',
+  chart: false,
 
   // Lifecycle Callbacks
-  didRender: function() {
+  didInsertElement: function() {
+    console.log('didInsertElement');
+
+    this.createChart();
+
+    this.set('legendMarkup', chart.generateLegend());
+  },
+
+  willUpdate: function() {
+    console.debug('removing canvas');
+    this.getCanvasElement().remove();
+
+    console.debug('add canvas back in');
+    this.$(this.get('element')).append('<canvas class="unit-graph-canvas"></canvas>');
+
+    console.debug('createChart');
     this.createChart();
   },
 
-  createChart: function() {
+  clearCanvas: function() {
+    let canvasContext = this.getCanvasContext(),
+        canvasElement = this.getCanvasElement();
+
+    canvasContext.clearRect(0, 0, canvasElement.width, canvasElement.height);
+  },
+
+  getCanvasElement: function() {
     let currentElement = this.get('element');
-    let canvasContext = this.$(currentElement).find('.unit-graph-canvas')[0].getContext('2d');
 
+    return this.$(currentElement).find('.unit-graph-canvas')[0];
+  },
+
+  getCanvasContext: function() {
+    return this.getCanvasElement().getContext('2d');
+  },
+
+  createChart: function() {
+    let canvasContext = this.getCanvasContext();
     let chart = new Chart(canvasContext).Line(this.chartData(), this.chartOptions());
-
-    this.set('legendMarkup', chart.generateLegend());
+    this.set('chart', chart);
   },
 
   chartData: function() {

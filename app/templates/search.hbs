@@ -24,16 +24,11 @@
   <div class='clear'></div>
 </div>
 
-{{#if currentRateData}}
-  <div class='container-padded'>
+<div class='container-padded'>
   {{unit-graph
     monthlyData=currentRateData.firstObject.dataArray
+    nationalData=nationalRateData.firstObject.dataArray
     searchedLocation=searchedLocation
     searchedUnitSize=searchedUnitSize
-    nationalData=nationalRateData.firstObject.dataArray
   }}
-  </div>
-{{/if}}
-
-{{currentRateData.id}}
-
+</div>
