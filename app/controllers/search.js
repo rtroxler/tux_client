@@ -13,9 +13,9 @@ export default Ember.Controller.extend({
         'city_name': formSubmission.location
       }
 
-      this.store.query('unit-data', queryParams).then((units) => {
+      this.store.query('rate-data', queryParams).then((rates) => {
         this.set('loadingUnitData', false);
-        this.set('currentUnitData', units);
+        this.set('currentUnitData', rates);
 
         console.debug('Info loaded');
       }, function() {
