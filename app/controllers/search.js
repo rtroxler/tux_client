@@ -1,8 +1,13 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
+  errorLoadingData: false,
+  errorMessage: '',
   currentRateData: false,
+  nationalRateData: false,
   loadingRateData: false,
+  searchedLocation: '',
+  searchedUnitSize: '',
 
   actions: {
     updateCurrentRateData: function(formSubmission) {
@@ -16,10 +21,12 @@ export default Ember.Controller.extend({
       this.store.query('rate-data', queryParams).then((rates) => {
         this.set('loadingRateData', false);
         this.set('currentRateData', rates);
-
-        console.debug('Info loaded');
-      }, function() {
-        console.debug('Yeah that did not work');
+        this.set('searchedLocation', formSubmission.location);
+        this.set('searchedUnitSize', formSubmission.size);
+      }, () => {
+        this.set('loadingRateData', false);
+        this.set('errorMessage', 'There was a problem loading the requested rate data');
+        this.set('errorLoadingData', true);
       });
     }
   }

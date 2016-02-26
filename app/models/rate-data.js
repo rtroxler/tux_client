@@ -14,8 +14,9 @@ export default DS.Model.extend({
   october: DS.attr('number'),
   november: DS.attr('number'),
   december: DS.attr('number'),
+
   processingTime: DS.attr('number'),
-  rentalsProcessedCount: DS.attr('number'),
+  numRentalsProcessed: DS.attr('number'),
 
   dataArray: Ember.computed('january', 'february', 'march', 'april', 'may',
                             'june', 'july', 'august', 'september', 'october',

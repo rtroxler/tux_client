@@ -1,9 +1,17 @@
+{{#if errorLoadingData}}
+  <div class='alert alert-danger'>{{errorMessage}}</div>
+{{/if}}
+
 {{#if currentRateData}}
-  {{unit-graph monthlyData=currentRateData.firstObject.dataArray}}
+  {{unit-graph
+    monthlyData=currentRateData.firstObject.dataArray
+    searchedLocation=searchedLocation
+    searchedUnitSize=searchedUnitSize
+  }}
 
   <div class='well'>
     <strong>Processing Time:</strong> {{currentRateData.firstObject.processingTime}}
-    <strong>Rentals Processed:</strong> {{currentRateData.firstObject.rentalsProcessedCount}}
+    <strong>Rentals Processed:</strong> {{currentRateData.firstObject.numRentalsProcessed}}
   </div>
 {{/if}}
 
