@@ -30,6 +30,15 @@ export default Ember.Component.extend({
         pointHighlightFill: "#fff",
         pointHighlightStroke: "rgba(40, 114, 193, 0.8)",
         data: this.monthlyData
+      }, {
+        label: 'National average rate',
+        fillColor: "rgba(220,220,220,0.5)",
+        strokeColor: "rgba(220,220,220,3)",
+        pointColor: "rgba(220,220,220,3)",
+        pointStrokeColor: "#fff",
+        pointHighlightFill: "#fff",
+        pointHighlightStroke: "rgba(220,220,220,1)",
+        data: this.nationalData
       }]
     };
   }
