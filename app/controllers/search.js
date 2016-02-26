@@ -1,12 +1,12 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
-  currentUnitData: false,
-  loadingUnitData: false,
+  currentRateData: false,
+  loadingRateData: false,
 
   actions: {
-    updateCurrentUnitData: function(formSubmission) {
-      this.set('loadingUnitData', true);
+    updateCurrentRateData: function(formSubmission) {
+      this.set('loadingRateData', true);
 
       let queryParams = {
         'unit_dimensions': formSubmission.size,
@@ -14,8 +14,8 @@ export default Ember.Controller.extend({
       }
 
       this.store.query('rate-data', queryParams).then((rates) => {
-        this.set('loadingUnitData', false);
-        this.set('currentUnitData', rates);
+        this.set('loadingRateData', false);
+        this.set('currentRateData', rates);
 
         console.debug('Info loaded');
       }, function() {

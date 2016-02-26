@@ -1,17 +1,17 @@
-{{#if currentUnitData}}
-  {{unit-graph monthlyData=currentUnitData.firstObject.dataArray}}
+{{#if currentRateData}}
+  {{unit-graph monthlyData=currentRateData.firstObject.dataArray}}
 
   <div class='well'>
-    <strong>Processing Time:</strong> {{currentUnitData.firstObject.processingTime}}
-    <strong>Rentals Processed:</strong> {{currentUnitData.firstObject.rentalsProcessedCount}}
+    <strong>Processing Time:</strong> {{currentRateData.firstObject.processingTime}}
+    <strong>Rentals Processed:</strong> {{currentRateData.firstObject.rentalsProcessedCount}}
   </div>
 {{/if}}
 
-{{currentUnitData.id}}
+{{currentRateData.id}}
 
 <h2>Search</h2>
 {{unit-data-search-form
-  loading=loadingUnitData
-  currentUnitData=currentUnitData.firstObject
-  updateDataAction='updateCurrentUnitData'
+  loading=loadingRateData
+  currentRateData=currentUnitData.firstObject
+  updateDataAction='updateCurrentRateData'
 }}
