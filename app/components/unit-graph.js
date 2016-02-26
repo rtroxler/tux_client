@@ -4,6 +4,7 @@ import Ember from 'ember';
 export default Ember.Component.extend({
   // Props
   monthlyData: false,
+  legendMarkup: false,
 
   // Lifecycle Callbacks
   didRender: function() {
@@ -14,7 +15,9 @@ export default Ember.Component.extend({
     let currentElement = this.get('element');
     let canvasContext = this.$(currentElement).find('.unit-graph-canvas')[0].getContext('2d');
 
-    new Chart(canvasContext).Line(this.chartData());
+    let chart = new Chart(canvasContext).Line(this.chartData(), this.chartOptions());
+
+    this.set('legendMarkup', chart.generateLegend());
   },
 
   chartData: function() {
@@ -40,6 +43,19 @@ export default Ember.Component.extend({
         pointHighlightStroke: "rgba(220,220,220,1)",
         data: this.nationalData
       }]
+    };
+  },
+
+  chartOptions: function() {
+    return {
+      legendTemplate : '<ul class="rate-graph-legend">'+
+                         '<% for (var i=0; i<datasets.length; i++) { %>'+
+                           '<li style="list-style-type: none">'+
+                             '<span style=\"background-color:<%=datasets[i].fillColor%>\">&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;'+
+                             '<% if (datasets[i].label) { %><%= datasets[i].label %><% } %>'+
+                           '</li>'+
+                         '<% } %>'+
+                       '</ul>'
     };
   }
 });
