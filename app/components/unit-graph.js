@@ -5,6 +5,8 @@ export default Ember.Component.extend({
   // Props
   monthlyData: false,
   legendMarkup: false,
+  searchedUnitSize: '',
+  searchedLocation: '',
 
   // Lifecycle Callbacks
   didRender: function() {
@@ -22,10 +24,9 @@ export default Ember.Component.extend({
 
   chartData: function() {
     return {
-      labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July',
-               'August', 'September', 'October', 'November', 'December'],
+      labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
       datasets: [{
-        label: 'Average Unit Rates in SOME PLACE, STATE',
+        label: `Average Rates for ${this.searchedUnitSize} in ${this.searchedLocation}`,
         fillColor: "rgba(50, 124, 203, 0.6)",
         strokeColor: "rgba(40, 114, 193, 0.6)",
         pointColor: "rgba(40, 114, 193, 0.6)",
@@ -34,7 +35,7 @@ export default Ember.Component.extend({
         pointHighlightStroke: "rgba(40, 114, 193, 0.8)",
         data: this.monthlyData
       }, {
-        label: 'National average rate',
+        label: `National Average Rate for ${this.searchedUnitSize}`,
         fillColor: "rgba(220,220,220,0.5)",
         strokeColor: "rgba(220,220,220,3)",
         pointColor: "rgba(220,220,220,3)",
@@ -51,11 +52,11 @@ export default Ember.Component.extend({
       legendTemplate : '<ul class="rate-graph-legend">'+
                          '<% for (var i=0; i<datasets.length; i++) { %>'+
                            '<li style="list-style-type: none">'+
-                             '<span style=\"background-color:<%=datasets[i].fillColor%>\">&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;'+
+                             '<span style=\"background-color:<%=datasets[i].fillColor%>\">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;'+
                              '<% if (datasets[i].label) { %><%= datasets[i].label %><% } %>'+
                            '</li>'+
                          '<% } %>'+
-                       '</ul>'
+                       '</ul><div class="clear"></div>'
     };
   }
 });
