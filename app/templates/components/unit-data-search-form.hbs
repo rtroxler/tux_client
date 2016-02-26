@@ -7,6 +7,7 @@
       autocomplete='off'
       required=true
       autofocus=true
+      key-up="postKey"
     }}
   </div>
 
@@ -27,3 +28,18 @@
     class='btn btn-dark btn-dull'
   }}
 </form>
+
+{{#if cities}}
+  <h3>Suggested Cities:</h3>
+  <table>
+    <th>
+      <td class="col-xs-3">Location</td><td># Rentals</td>
+    </th>
+    {{#each cities as |city| }}
+    <tr>
+      <td>{{city.city}}, {{ city.state }}</td>
+      <td> {{ city.occurences }}</td>
+    </tr>
+    {{/each}}
+  </table>
+{{/if}}
