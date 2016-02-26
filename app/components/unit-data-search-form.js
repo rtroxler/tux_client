@@ -6,12 +6,12 @@ export default Ember.Component.extend({
 
   actions: {
     search: function() {
-      let unitDimensions = this.get('unitDimensions'),
-          unitLocation   = this.get('unitLocation');
+      let formData = {
+        size: this.get('unitDimensions'),
+        location: this.get('unitLocation')
+      };
 
-      this.sendAction('updateDataAction', { size: unitDimensions, location: unitLocation });
-
-      // alert(`unitDimensions: ${unitDimensions}, unitLocation: ${unitLocation}`);
+      this.sendAction('updateDataAction', formData);
     }
   }
 });
