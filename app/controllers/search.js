@@ -30,8 +30,6 @@ export default Ember.Controller.extend({
 
         this.store.query('national-rate-data', { unit_dimensions: formSubmission.size }).then((nattyRates) => {
           this.set('nationalRateData', nattyRates);
-
-          console.log('Loaded up that fuckin data');
         }, () => {
           console.log('Unable to load national rate data');
         });

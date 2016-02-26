@@ -1,10 +1,3 @@
-{{#if errorLoadingData}}
-  <div class='alert alert-danger'>{{errorMessage}}</div>
-{{/if}}
-
-{{#if loadingRateData}}
-  <div class='alert alert-info'>Loading...</div>
-{{/if}}
 
 <div class='container-padded'>
   <div class='container-search left'>
@@ -15,6 +8,7 @@
     }}
   </div>
 
+
   {{#if currentRateData.firstObject.numRentalsProcessed}}
     <div class='right rentals-processed text-right'>
       <strong>Process Time: </strong> {{currentRateData.firstObject.processingTime}}s <strong>Rentals Processed:</strong> {{currentRateData.firstObject.numRentalsProcessed}}
@@ -23,6 +17,14 @@
 
   <div class='clear'></div>
 </div>
+
+{{#if errorLoadingData}}
+  <div class='alert alert-danger'>{{errorMessage}}</div>
+{{/if}}
+
+{{#if loadingRateData}}
+  <div class='alert alert-info'>Loading...</div>
+{{/if}}
 
 {{#if currentRateData}}
   <div class='container-padded'>

@@ -29,10 +29,12 @@ export default Ember.Component.extend({
     let store = this.get('store');
 
     console.log(this.get('unitDimensions'));
-    store.query('city-data', { unit_dimensions: this.get('unitDimensions') }).then( (result) => {
-      if (this.get('loadCities')) {
-        this.set('cities', result);
-      }
-    });
+    if (this.get('loadCities')) {
+      store.query('city-data', { unit_dimensions: this.get('unitDimensions') }).then( (result) => {
+        if (this.get('loadCities')) {
+          this.set('cities', result);
+        }
+      });
+    }
   }
 });
